@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mário Alves | Inteligência Emocional e Psicanálise</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome para Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            400: '#F3E5AB', // Bege/Dourado claro
+                            500: '#D4AF37', // Dourado clássico
+                            600: '#AA8C2C', // Dourado escuro
+                        },
+                        dark: {
+                            900: '#0a0a0a',
+                            800: '#171717',
+                            700: '#262626',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Styles & Animations */
+        body {
+            background-color: #0a0a0a;
+            color: #f5f5f5;
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .gold-gradient-text {
+            background: linear-gradient(to right, #D4AF37, #F3E5AB);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Subtle glowing effect for cards */
+        .glass-card {
+            background: rgba(23, 23, 23, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            border-color: rgba(212, 175, 55, 0.5);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px -10px rgba(212, 175, 55, 0.2);
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-gold-500 selection:text-black">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 bg-dark-900/90 backdrop-blur-md border-b border-white/5 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#home" class="font-serif text-2xl text-gold-500 font-semibold tracking-wider">M<span class="text-white">A</span></a>
+                </div>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#sobre" class="text-gray-300 hover:text-gold-500 transition-colors text-sm uppercase tracking-widest">Sobre</a>
+                    <a href="#atuacao" class="text-gray-300 hover:text-gold-500 transition-colors text-sm uppercase tracking-widest">Atuação</a>
+                    <a href="#metodo" class="text-gray-300 hover:text-gold-500 transition-colors text-sm uppercase tracking-widest">Método</a>
+                    <a href="#contato" class="text-gray-300 hover:text-gold-500 transition-colors text-sm uppercase tracking-widest">Contato</a>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-gold-500 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-dark-800 border-b border-white/5">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-center">
+                <a href="#sobre" class="block px-3 py-2 text-gray-300 hover:text-gold-500 uppercase text-sm tracking-wider">Sobre</a>
+                <a href="#atuacao" class="block px-3 py-2 text-gray-300 hover:text-gold-500 uppercase text-sm tracking-wider">Atuação</a>
+                <a href="#metodo" class="block px-3 py-2 text-gray-300 hover:text-gold-500 uppercase text-sm tracking-wider">Método</a>
+                <a href="#contato" class="block px-3 py-2 text-gray-300 hover:text-gold-500 uppercase text-sm tracking-wider">Contato</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 1. Hero Section -->
+    <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background elements -->
+        <div class="absolute inset-0 bg-[url('watermarked_img_10626331145318709629.jpg')] bg-cover bg-center opacity-30"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-dark-900/80 to-dark-900"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gold-500/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto mt-16 fade-in">
+            <p class="text-gold-400 font-medium tracking-[0.2em] uppercase text-sm mb-4">Inteligência Emocional & Psicanálise</p>
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-white mb-6 leading-tight">
+                Mário <span class="gold-gradient-text">Alves</span>
+            </h1>
+            <p class="mt-4 text-xl md:text-2xl font-light text-gray-300 mb-10 italic font-serif">
+                "Onde a lógica falha, a Inteligência Emocional reconstrói."
+            </p>
+            <a href="#contato" class="inline-block px-8 py-4 bg-gold-500 hover:bg-gold-400 text-dark-900 font-semibold rounded-full transition-all duration-300 transform hover:scale-105 shadow-[0_0_20px_rgba(212,175,55,0.3)]">
+                Comece sua Reconstrução
+            </a>
+        </div>
+    </section>
+
+    <!-- 2. Sobre Mim -->
+    <section id="sobre" class="py-24 bg-dark-900 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center gap-16">
+                <div class="w-full md:w-1/2 fade-in">
+                    <div class="relative">
+                        <!-- Placeholder for Mario's Photo -->
+                        <div class="aspect-[4/5] bg-dark-800 rounded-lg overflow-hidden border border-white/5 relative z-10">
+                            <img src="img/mario.jpg">
+                        </div>
+                        <!-- Decorative box -->
+                    </div>
+                </div>
+                
+                <div class="w-full md:w-1/2 fade-in">
+                    <h2 class="text-sm text-gold-500 font-bold tracking-widest uppercase mb-2">Sobre Mim</h2>
+                    <h3 class="text-3xl md:text-4xl font-serif text-white mb-6">Autoridade em Reconstrução Emocional</h3>
+                    
+                    <div class="space-y-4 text-gray-400 font-light leading-relaxed">
+                        <p>
+                            Especialista em Inteligência Emocional e Psicanálise (IAV), dedico minha trajetória a guiar pessoas emocionalmente cansadas de volta à sua própria essência.
+                        </p>
+                        <p>
+                            Sou cofundador do <strong class="text-white font-normal">Instituto Andrea Vermont</strong> e o criador do método <strong class="text-gold-400 font-normal">MOTYVACE</strong>, uma abordagem profunda e estruturada que não busca criar pessoas perfeitas, mas ajudá-las a encontrar paz interna e romper ciclos destrutivos.
+                        </p>
+                        <p>
+                            Acredito que o trauma não é o seu destino, mas sim o ponto de partida para a sua reconstrução. Se você tem sido forte por tempo demais, chegou a hora de ser acolhido.
+                        </p>
+                    </div>
+                    
+                    <div class="mt-8 pt-8 border-t border-white/10 flex items-center gap-6">
+                        <div class="text-center">
+                            <span class="block text-2xl font-serif text-gold-500">IAV</span>
+                            <span class="text-xs text-gray-500 uppercase tracking-wider">Psicanálise</span>
+                        </div>
+                        <div class="w-px h-10 bg-white/10"></div>
+                        <div class="text-center">
+                            <span class="block text-2xl font-serif text-gold-500">MOTYVACE</span>
+                            <span class="text-xs text-gray-500 uppercase tracking-wider">Criador do Método</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Áreas de Atuação -->
+    <section id="atuacao" class="py-24 bg-dark-800 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 fade-in">
+                <h2 class="text-sm text-gold-500 font-bold tracking-widest uppercase mb-2">Especialidades</h2>
+                <h3 class="text-3xl md:text-4xl font-serif text-white mb-4">Pilares de Atendimento</h3>
+                <p class="text-gray-400 font-light">Transformando a exaustão emocional em sabedoria prática e assertividade.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card 1 -->
+                <div class="glass-card p-8 rounded-2xl fade-in group">
+                    <div class="w-14 h-14 bg-dark-900 rounded-full flex items-center justify-center mb-6 group-hover:bg-gold-500 transition-colors duration-300">
+                        <i class="fa-solid fa-heart-crack text-gold-500 text-xl group-hover:text-dark-900 transition-colors duration-300"></i>
+                    </div>
+                    <h4 class="text-xl font-serif text-white mb-3">Relacionamentos</h4>
+                    <p class="text-sm text-gray-400 font-light">Rompendo ciclos destrutivos e desenvolvendo uma comunicação sem ataques. Transforme a defesa em conexão.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="glass-card p-8 rounded-2xl fade-in group" style="transition-delay: 100ms;">
+                    <div class="w-14 h-14 bg-dark-900 rounded-full flex items-center justify-center mb-6 group-hover:bg-gold-500 transition-colors duration-300">
+                        <i class="fa-regular fa-eye text-gold-500 text-xl group-hover:text-dark-900 transition-colors duration-300"></i>
+                    </div>
+                    <h4 class="text-xl font-serif text-white mb-3">Autoconhecimento</h4>
+                    <p class="text-sm text-gray-400 font-light">Enxergue além da superfície. A vulnerabilidade não é onde você desmorona, é a base da sua maior força.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="glass-card p-8 rounded-2xl fade-in group" style="transition-delay: 200ms;">
+                    <div class="w-14 h-14 bg-dark-900 rounded-full flex items-center justify-center mb-6 group-hover:bg-gold-500 transition-colors duration-300">
+                        <i class="fa-solid fa-anchor text-gold-500 text-xl group-hover:text-dark-900 transition-colors duration-300"></i>
+                    </div>
+                    <h4 class="text-xl font-serif text-white mb-3">Ansiedade</h4>
+                    <p class="text-sm text-gray-400 font-light">O excesso de futuro sem direção. Aprenda técnicas para ancorar sua mente no agora através do controle emocional.</p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="glass-card p-8 rounded-2xl fade-in group" style="transition-delay: 300ms;">
+                    <div class="w-14 h-14 bg-dark-900 rounded-full flex items-center justify-center mb-6 group-hover:bg-gold-500 transition-colors duration-300">
+                        <i class="fa-solid fa-compass text-gold-500 text-xl group-hover:text-dark-900 transition-colors duration-300"></i>
+                    </div>
+                    <h4 class="text-xl font-serif text-white mb-3">Propósito</h4>
+                    <p class="text-sm text-gray-400 font-light">Baseado na Mente Mestra e nas leis do sucesso. Alinhe suas decisões aos seus valores e pare de desperdiçar energia.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Método MOTYVACE -->
+    <section id="metodo" class="py-24 bg-dark-900 border-t border-white/5 relative overflow-hidden">
+        <!-- Logo Background watermark -->
+        <div class="absolute top-1/2 right-0 transform -translate-y-1/2 translate-x-1/3 opacity-5 pointer-events-none">
+            <h1 class="text-[200px] font-serif font-bold text-gold-500">M</h1>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col lg:flex-row gap-16 items-center">
+                    <div class="w-full lg:w-5/12 fade-in">
+                        <img src="img/motyvace.jpg" alt="Conceito MOTYVACE" class="w-full rounded-2xl opacity-80 shadow-2xl border border-gold-500/20">
+                    </div>
+
+                <div class="w-full lg:w-7/12">
+                    <div class="fade-in mb-10">
+                        <h2 class="text-gold-500 font-serif text-4xl mb-2 tracking-wide">M O T Y V A C E</h2>
+                        <h3 class="text-xl text-white font-light tracking-widest uppercase">Método de Reconstrução Emocional</h3>
+                        <p class="mt-6 text-gray-400 font-light">Não nascemos para pressionar pessoas que já estão esgotadas. Nascemos para reconstruí-las. O método é sustentado por três pilares fundamentais para transformar dor em autoridade:</p>
+                    </div>
+
+                    <div class="space-y-8">
+                        <!-- Pilar 1 -->
+                        <div class="flex gap-6 fade-in">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-10 h-10 rounded-full border border-gold-500 flex items-center justify-center text-gold-500">
+                                    01
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-serif text-white mb-2">Clareza Emocional</h4>
+                                <p class="text-gray-400 font-light text-sm">O conflito que você evita é o que impede sua reconstrução. A clareza permite identificar feridas e padrões ocultos que geram reações automáticas.</p>
+                            </div>
+                        </div>
+
+                        <!-- Pilar 2 -->
+                        <div class="flex gap-6 fade-in" style="transition-delay: 100ms;">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-10 h-10 rounded-full border border-gold-500 flex items-center justify-center text-gold-500">
+                                    02
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-serif text-white mb-2">Fortalecimento Emocional</h4>
+                                <p class="text-gray-400 font-light text-sm">Aprender a estabelecer limites. Dizer "não" para o outro é, muitas vezes, o único jeito de dizer "sim" para você. Acolher a criança ferida liberta o adulto.</p>
+                            </div>
+                        </div>
+
+                        <!-- Pilar 3 -->
+                        <div class="flex gap-6 fade-in" style="transition-delay: 200ms;">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-10 h-10 rounded-full border border-gold-500 flex items-center justify-center text-gold-500">
+                                    03
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-serif text-white mb-2">Maturidade Emocional</h4>
+                                <p class="text-gray-400 font-light text-sm">Saber que nem toda conversa precisa virar ataque. A maturidade transforma o conhecimento em sabedoria prática e empatia, criando resiliência real.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Contato / CTA Final -->
+    <section id="contato" class="py-24 bg-dark-800 relative text-center">
+        <div class="absolute inset-0 bg-gradient-to-t from-dark-900 to-transparent"></div>
+        <div class="max-w-3xl mx-auto px-4 relative z-10 fade-in">
+            <i class="fa-brands fa-instagram text-4xl text-gold-500 mb-6"></i>
+            <h2 class="text-4xl md:text-5xl font-serif text-white mb-6">Pronto para mudar?</h2>
+            <p class="text-xl text-gray-300 font-light mb-10">
+                Se você se identificou com isso... é hora de parar de culpar e começar a entender.
+            </p>
+            
+            <div class="p-8 border border-gold-500/30 rounded-2xl bg-dark-900/50 backdrop-blur-sm inline-block">
+                <p class="text-white mb-6 text-lg">Me chama no direct com a palavra <br><strong class="text-gold-500 font-serif text-2xl tracking-widest mt-2 block">RELACIONAMENTO</strong> <br>e vamos conversar.</p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="https://instagram.com/impact.life20" target="_blank" class="px-6 py-3 bg-dark-700 hover:bg-dark-600 text-white rounded-full transition-colors flex items-center justify-center gap-2 border border-white/10 hover:border-gold-500/50">
+                        <i class="fa-brands fa-instagram"></i> @impact.life20
+                    </a>
+                    <a href="https://instagram.com/jornadamotyvace" target="_blank" class="px-6 py-3 bg-dark-700 hover:bg-dark-600 text-white rounded-full transition-colors flex items-center justify-center gap-2 border border-white/10 hover:border-gold-500/50">
+                        <i class="fa-brands fa-instagram"></i> @jornadamotyvace
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-900 py-8 border-t border-white/5 text-center text-gray-500 text-sm">
+        <p>&copy; 2026 Mário Alves | MOTYVACE. Todos os direitos reservados.</p>
+        <p class="mt-2 text-xs">Instituto Andrea Vermont | Psicanálise e Inteligência Emocional</p>
+    </footer>
+
+    <!-- JavaScript para Interações -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobile Menu Toggle
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+            
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+            });
+
+            // Close mobile menu on click
+            const mobileLinks = menu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    menu.classList.add('hidden');
+                });
+            });
+
+            // Navbar Scroll Effect
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('shadow-lg', 'bg-dark-900/95');
+                    navbar.classList.remove('bg-dark-900/90');
+                } else {
+                    navbar.classList.remove('shadow-lg', 'bg-dark-900/95');
+                    navbar.classList.add('bg-dark-900/90');
+                }
+            });
+
+            // Intersection Observer for Fade-In Animations
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target); // Run once
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in').forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>
